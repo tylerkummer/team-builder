@@ -6,9 +6,9 @@ import TeamForm from "./Team/TeamForm"
 function App() {
     const [teams, setTeams] = useState([{
         id: 1,
-        name: "Name",
-        email: "Email",
-        role: "Role"
+        name: "Tyler Kummer",
+        email: "tylerkummer96@gmail.com",
+        role: "Student"
     }]);
 
     const addNewTeam = team => {
