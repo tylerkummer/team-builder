@@ -3,8 +3,9 @@ import React, {useState} from "react";
 const TeamForm = props => {
     console.log("Props", props);
     const [team, setTeam] = useState({
-        title: "",
-        body: ""
+        name: "",
+        email: "",
+        role: ""
     });
 
     const handleChanges = e => {
@@ -15,15 +16,17 @@ const TeamForm = props => {
     const submitForm = e => {
         e.preventDefault();
         props.addNewTeam(team);
-        setTeam({title: "", body: ""});
+        setTeam({name: "", email: "", role: ""});
     };
     
     return(
-        <form onSubmit={submitForm}>
-            <label htmlFor="title">Title</label>
-            <input id="title" type="text" name="title" onChange={handleChanges} value={team.title}/>
-            <label htmlFor="team">Team</label>
-            <textarea id="team" name="body" onChange={handleChanges} value={team.body}/>
+        <form onSubmit={submitForm} style={{display: "flex", flexDirection: "column"}}>
+            <label htmlFor="name">Name</label>
+            <input id="name" type="text" name="name" onChange={handleChanges} value={team.name}/>
+            <label htmlFor="email">Email</label>
+            <input id="email" name="email" onChange={handleChanges} value={team.email}/>
+            <label htmlFor="role">Role</label>
+            <input id="role" type="text" name="role" onChange={handleChanges} value={team.role} />
             <button type="submit">Add Team</button>
         </form>
     ); 

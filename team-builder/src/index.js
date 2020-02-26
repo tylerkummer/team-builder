@@ -6,21 +6,23 @@ import TeamForm from "./Team/TeamForm"
 function App() {
     const [teams, setTeams] = useState([{
         id: 1,
-        title: "Team Member 1",
-        body: "Default place holder text"
+        name: "Name",
+        email: "Email",
+        role: "Role"
     }]);
 
     const addNewTeam = team => {
         const newTeam = {
             id: Date.now(),
-            title: team.title,
-            body: team.body
+            name: team.name,
+            email: team.email,
+            role: team.role
         };
         setTeams([...teams, newTeam]);
     }
 
     return (
-        <div className="App">
+        <div className="App" style={{width: "25%", margin: "0 auto"}}>
             <h1>My Team</h1>
             <TeamForm addNewTeam={addNewTeam}/>
             <Teams teams={teams} />
